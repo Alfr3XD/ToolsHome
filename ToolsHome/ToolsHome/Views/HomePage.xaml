@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToolsHome.Views.HomePage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#15171c">
+            <Frame BackgroundColor="#232533" Padding="24" CornerRadius="0">
+                <Label
+                    Text="HOME PAGE"
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontSize="24"
+                />
+            </Frame>
+
+            <Button
+                Text="Calcular Área"
+                Padding="20"
+                BackgroundColor="#253399"
+                VerticalOptions="Center"
+                Clicked="btn_changePage"
+            />
+
+            <Button
+                Text="ToDo"
+                Padding="20"
+                BackgroundColor="#253399"
+                VerticalOptions="Center"
+                Clicked="btn_changePageToDo"
+            />
+
+            <Button
+                Text="Tareas"
+                Padding="20"
+                BackgroundColor="#253399"
+                VerticalOptions="Center"
+                Clicked="btn_changePageTareas"
+            />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

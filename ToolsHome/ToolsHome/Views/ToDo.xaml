@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToolsHome.Views.ToDo">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#15171c">
+            <Frame BackgroundColor="#232533" Padding="24" CornerRadius="0">
+                <Label
+            Text="To Do"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            FontSize="24"
+        />
+            </Frame>
+            <StackLayout Padding="20">
+                <ListView>
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String> Index 1 </x:String>
+                            <x:String>Index 2</x:String>
+                            <x:String>Index 3</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                </ListView>
+
+                <ListView x:Name="ListaArray">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding}"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name="indexList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding Path=Description}"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <CollectionView x:Name="TareaCollectionView">
+                    
+                    <!---<CollectionView.ItemsLayout>
+                        <LinearItemsLayout 
+                            Orientation="Horizontal"
+                        />
+                    </CollectionView.ItemsLayout>-->
+                   
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <FlexLayout
+                                Direction="Column"
+                                JustifyContent="Center"
+                                HeightRequest="80"
+                                WidthRequest="20"
+                                BackgroundColor="{StaticResource ColorPrimary}"
+                                Padding="5"
+                             >
+                                <Label Text="{Binding Description}" />
+                            </FlexLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
