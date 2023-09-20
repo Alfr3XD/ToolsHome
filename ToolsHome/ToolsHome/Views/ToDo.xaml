@@ -16,7 +16,7 @@
                 <ListView>
                     <ListView.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String> Index 1 </x:String>
+                            <x:String>Index 1</x:String>
                             <x:String>Index 2</x:String>
                             <x:String>Index 3</x:String>
                         </x:Array>
@@ -44,13 +44,13 @@
                 </ListView>
 
                 <CollectionView x:Name="TareaCollectionView">
-                    
+
                     <!---<CollectionView.ItemsLayout>
                         <LinearItemsLayout 
                             Orientation="Horizontal"
                         />
                     </CollectionView.ItemsLayout>-->
-                   
+
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <FlexLayout
@@ -67,6 +67,9 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
+            
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

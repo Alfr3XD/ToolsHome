@@ -18,7 +18,7 @@ namespace ToolsHome.Views
         }
         private async void btn_changePage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CalcularPage());
+            await Navigation.PushAsync(new CrearTarea());
         }
 
         private async void btn_changePageToDo(object sender, EventArgs e)

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace ToolsHome.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CalcularPage : ContentPage
+    public partial class CrearTarea : ContentPage
     {
-        public CalcularPage()
+        public CrearTarea()
         {
             InitializeComponent();
         }

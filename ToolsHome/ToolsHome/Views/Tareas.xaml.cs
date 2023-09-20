@@ -20,6 +20,18 @@ namespace ToolsHome.Views
 		{
 			InitializeComponent ();
 
+            
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            SetCollectionViewItemsWithCollectionList();
+            SetCollectionViewItemsWithDatabse();
+        }
+
+        private void SetCollectionViewItemsWithCollectionList()
+        {
             TareasList = new List<Tarea>
             {
                 new Tarea
@@ -47,5 +59,16 @@ namespace ToolsHome.Views
 
             tareaList.ItemsSource = TareasList;
         }
-	}
+
+        private async void SetCollectionViewItemsWithDatabse()
+        {
+            var Taks = await App.DatabaseApplication.GetItemsAsync();
+            tareaListDB.ItemsSource = Taks;
+        }
+
+        private async void ChangePageAddTask(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CreateTask());
+        }
+    }
 }

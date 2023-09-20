@@ -52,7 +52,55 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
-            
+
+            <StackLayout Padding="20">
+                <CollectionView x:Name="tareaListDB">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout 
+                            Orientation="Vertical"
+                            ItemSpacing="10"
+                        />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Padding="10"
+                                BackgroundColor="{StaticResource ColorPrimary}"
+                            >
+                                <FlexLayout>
+                                    <CheckBox Color="DarkGreen"/>
+                                    <StackLayout>
+                                        <Label
+                                            Text="{Binding Description}" 
+                                            FontSize="24" 
+                                            FontAttributes="Bold"
+                                        />          
+
+                                        <Label 
+                                            Text="{Binding State}" 
+                                            FontSize="14"
+                                            FontAttributes="Italic"
+                                        />
+
+                                        <Label 
+                                            Text="{Binding Timestamp}" 
+                                        />
+                                    </StackLayout>
+                                </FlexLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            <Button
+                Text="Crea una tarea"
+                Clicked="ChangePageAddTask"
+                BackgroundColor="DarkBlue"
+            >
+                
+            </Button>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
