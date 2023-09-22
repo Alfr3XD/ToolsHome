@@ -2,6 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToolsHome.Views.Tareas">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="Añadir"
+            Priority="1" 
+            Clicked="ChangePageAddTask"
+        />
+        <ToolbarItem 
+            Text="Eliminar"
+            Priority="1" 
+            Clicked="ToolbarItem_DeleteTaksClicked"
+        />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#15171c">
             <Frame BackgroundColor="#232533" Padding="24" CornerRadius="0">
@@ -12,94 +24,60 @@
                     FontSize="24"
                 />
             </Frame>
-            
+
             <StackLayout Padding="20">
-                <CollectionView x:Name="tareaList">
+                <CollectionView x:Name="tareaListDB" SelectionMode="Multiple">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout 
                             Orientation="Vertical"
-                            ItemSpacing="10"
+                            ItemSpacing="10"      
                         />
                     </CollectionView.ItemsLayout>
+
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame
-                                Padding="10"
                                 BackgroundColor="{StaticResource ColorPrimary}"
+                                BorderColor="Black"
+                                CornerRadius="10"
+                                HasShadow="True"
+                                Padding="10"
                             >
                                 <FlexLayout>
-                                    <CheckBox Color="DarkGreen"/>
-                                    <StackLayout>
+                                    <StackLayout
+                                        FlexLayout.Grow="1" 
+                                    >
                                         <Label
                                             Text="{Binding Description}" 
                                             FontSize="24" 
                                             FontAttributes="Bold"
+                                            TextColor="White"
                                         />
 
                                         <Label 
                                             Text="{Binding State}" 
                                             FontSize="14"
                                             FontAttributes="Italic"
-                                        />
-
-                                        <Label 
-                                            Text="{Binding Timestamp}" 
-                                        />
-                                    </StackLayout>
-                                </FlexLayout>
-                            </Frame>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
-
-            <StackLayout Padding="20">
-                <CollectionView x:Name="tareaListDB">
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout 
-                            Orientation="Vertical"
-                            ItemSpacing="10"
-                        />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame
-                                Padding="10"
-                                BackgroundColor="{StaticResource ColorPrimary}"
-                            >
-                                <FlexLayout>
-                                    <CheckBox Color="DarkGreen"/>
-                                    <StackLayout>
-                                        <Label
-                                            Text="{Binding Description}" 
-                                            FontSize="24" 
-                                            FontAttributes="Bold"
+                                            TextColor="White" 
                                         />          
 
                                         <Label 
-                                            Text="{Binding State}" 
-                                            FontSize="14"
-                                            FontAttributes="Italic"
-                                        />
-
-                                        <Label 
                                             Text="{Binding Timestamp}" 
+                                            TextColor="White"
                                         />
                                     </StackLayout>
+                                    <Button
+                                        HorizontalOptions="End"
+                                        FlexLayout.Grow="0" 
+                                        Clicked="ChangePageEditTask"
+                                        Text="Editar"
+                                    />
                                 </FlexLayout>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
-
-            <Button
-                Text="Crea una tarea"
-                Clicked="ChangePageAddTask"
-                BackgroundColor="DarkBlue"
-            >
-                
-            </Button>
 
         </StackLayout>
     </ContentPage.Content>

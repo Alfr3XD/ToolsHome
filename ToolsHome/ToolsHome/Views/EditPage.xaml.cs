@@ -3,35 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ToolsHome.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ToolsHome.Models;
 
 namespace ToolsHome.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateTask : ContentPage
-    {
-        public CreateTask()
-        {
-            InitializeComponent();
-        }
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class EditPage : ContentPage
+	{
+		private Tarea TareaProp;
+		public EditPage (Tarea tarea)
+		{
+			InitializeComponent ();
 
-        private async void CrearTask(object sender, EventArgs e)
-        {
+			this.TareaProp = tarea;
+
+			var Description = tarea.Description;
+			var Time = tarea.Timestamp;
+			var State = tarea.State;
+
+            TxtDescription.Text = Description;
+			DateFecha.Date = Time;
+			PickerState.SelectedItem = State;
+
+		}
+
+		private async void EditTaksBtn(object sender, EventArgs e)
+		{
+
+			TareaProp.Description = TxtDescription.Text;
+
+            TareaProp.Timestamp = DateFecha.Date;
+
+            TareaProp.State = PickerState.SelectedItem.ToString();
+
             if (!string.IsNullOrWhiteSpace(TxtDescription.Text) && DateFecha.Date != DateTime.MinValue && PickerState.SelectedItem != null)
             {
                 try
                 {
-                    var task = new Tarea
-                    {
-                        Description = TxtDescription.Text,
-                        Timestamp = DateFecha.Date,
-                        State = PickerState.SelectedItem.ToString()
-                    };
 
-                    var result = await App.DatabaseApplication.InsertItem(task);
+                    var result = await App.DatabaseApplication.UpdateTaks(TareaProp);
 
                     if (result == 1)
                     {
@@ -46,12 +58,12 @@ namespace ToolsHome.Views
                 {
                     await DisplayAlert("Error al crear la tarea", ex.Message, "cerrar");
                 }
-            } else
+            }
+            else
             {
                 await DisplayAlert("Error al crear la tarea", "Te falta rellenar un campo", "cerrar");
                 return;
             }
-           
         }
     }
 }

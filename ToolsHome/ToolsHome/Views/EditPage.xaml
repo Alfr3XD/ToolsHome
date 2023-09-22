@@ -1,24 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ToolsHome.Views.CreateTask">
+             x:Class="ToolsHome.Views.EditPage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#15171c">
             <Frame BackgroundColor="#232533" Padding="24" CornerRadius="0">
                 <Label
-                     Text="Crea una tarea"
-                     HorizontalTextAlignment="Center"
-                     TextColor="White"
-                     FontSize="24"
-                />     
+                    Text="TAREAS"
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontSize="24"
+                />
             </Frame>
+
             <StackLayout Padding="20">
+                <Label Text="Editar" FontSize="30"/>
+
                 <Label Text="Descripción" />
                 <Frame CornerRadius="5" BackgroundColor="White" HasShadow="True" Padding="5">
                     <Entry 
-                         BackgroundColor="Transparent"
-                         x:Name="TxtDescription"
-                         TextColor="Black"
+                        BackgroundColor="Transparent"
+                        x:Name="TxtDescription"
+                        TextColor="Black"
                      />
                 </Frame>
 
@@ -31,20 +34,20 @@
                 <Picker x:Name="PickerState">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String> Pendiente </x:String>
+                            <x:String>Pendiente</x:String>
                             <x:String>Terminado</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
 
                 <Button 
-                    Clicked="CrearTask"
-                    Text="Crear Tarea"
+                    Text="Editar Tarea"
                     Padding="20"
                     TextTransform="None"
                     CornerRadius="3"
                     HorizontalOptions="Start"
                     BackgroundColor="{StaticResource ColorPrimary}"
+                    Clicked="EditTaksBtn"
                 />
             </StackLayout>
         </StackLayout>
