@@ -29,5 +29,11 @@ namespace ToolsHome.Views
         {
             await Navigation.PushAsync(new Tareas());
         }
+
+        private async void btn_changePageGastos(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Gastos());
+        }
+
     }
 }

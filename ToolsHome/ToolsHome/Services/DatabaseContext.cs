@@ -15,8 +15,53 @@ namespace ToolsHome.Services
         {
             Connection = new SQLiteAsyncConnection(uri);
 
-            Connection.CreateTableAsync<Tarea>().Wait();
+            Connection.CreateTableAsync<Tarea>().Wait();  // Table Tareas
+            Connection.CreateTableAsync<Gasto>().Wait(); // Table Gastos
         }
+
+        public async Task<List<Gasto>> GetGastosAsync()
+        {
+            return await Connection.Table<Gasto>().ToListAsync();
+        }
+
+        public async Task<int> InsertGastoAsync(Gasto item)
+        {
+            return await Connection.InsertAsync(item);
+        }
+
+        public async Task<int> DeleteGastoAsync(Gasto item)
+        {
+            return await Connection.DeleteAsync(item);
+        }
+        public async Task<int> UpdateGasto(Gasto updatedItem)
+        {
+            try
+            {
+                var FindedItem = await Connection.FindAsync<Gasto>(updatedItem.Id);
+
+                if (FindedItem != null)
+                {
+                    FindedItem.Description = updatedItem.Description;
+                    FindedItem.Category = updatedItem.Category;
+                    FindedItem.Date = updatedItem.Date;
+                    FindedItem.Amount = updatedItem.Amount; 
+                    FindedItem.State = updatedItem.State;
+
+                    await Connection.UpdateAsync(FindedItem);
+
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
 
         public async Task<List<Tarea>> GetItemsAsync()
         {
@@ -51,13 +96,11 @@ namespace ToolsHome.Services
                 }
                 else
                 {
-                    // El registro no existe
-                    return 0; // O algún otro valor que indique que no se pudo actualizar
+                    return 0;
                 }
             }
             catch
             {
-                // Manejo de errores, puedes agregar el código adecuado aquí
                 return 0;
             }
         }

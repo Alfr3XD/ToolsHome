@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToolsHome.Views.HomePage">
     <ContentPage.Content>
+
         <StackLayout BackgroundColor="#15171c">
             <Frame BackgroundColor="#232533" Padding="24" CornerRadius="0">
                 <Label
@@ -36,6 +37,15 @@
                 VerticalOptions="Center"
                 Clicked="btn_changePageTareas"
             />
+
+            <Button
+                Text="Gastos"
+                Padding="20"
+                BackgroundColor="#253399"
+                VerticalOptions="Center"
+                Clicked="btn_changePageGastos"
+            />
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

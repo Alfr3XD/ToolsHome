@@ -28,10 +28,10 @@
                     x:Name="DateFecha"
                     TextColor="Black"
                 />
-                <Picker x:Name="PickerState">
+                <Picker x:Name="PickerState" SelectedItem="Pendiente">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String> Pendiente </x:String>
+                            <x:String>Pendiente</x:String>
                             <x:String>Terminado</x:String>
                         </x:Array>
                     </Picker.ItemsSource>

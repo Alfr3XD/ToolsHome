@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToolsHome.Views.AddGasto">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#15171c">
+            <Frame BackgroundColor="#232533" Padding="24" CornerRadius="0">
+                <Label
+                    Text="Asigna un gasto"
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontSize="24"
+                />
+            </Frame>
+            <StackLayout Padding="50">
+                <Label Text="Descripción"/>
+                <Entry x:Name="DescriptionEntry_Txt"/>
+
+                <Label Text="Categoría" />
+                <Picker x:Name="PickerCategory" SelectedItem="Sin asignar">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String> Mantenimiento </x:String>
+                            <x:String> Agua </x:String>
+                            <x:String> Electricidad </x:String>
+                            <x:String> Gas </x:String>
+                            <x:String> Internet </x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Text="Estado" />
+                <Picker x:Name="PickerState" SelectedItem="Pendiente" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String> Pendiente </x:String>
+                            <x:String> En Progeso </x:String>
+                            <x:String> Terminado </x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Text="Fecha" />
+                <DatePicker x:Name="DateFecha"/>
+
+                <Label Text="Cantidad de gasto en S/"/>
+                <Entry x:Name="Gasto_Double" Keyboard="Numeric"/>
+
+                <Button 
+                    Text="Añadir Gasto"
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    Clicked="Btn_AddGasto"
+                />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -7,13 +7,14 @@
             <Color
                 x:Key="ColorPrimary"
             >
-                #236AE7
+                #ad1f1f
             </Color>
             <Color
                 x:Key="ColorPrimaryDark"
              >
                 #164597
             </Color>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
